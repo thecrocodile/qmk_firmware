@@ -1,0 +1,24 @@
+name: Build Tinker 75 VIA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ghcr.io/qmk/qmk_cli
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Compile QMK Firmware
+        run: qmk compile -kb projectd/75/ansi -km via
+
+      - name: Upload Firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: projectd_75_ansi_via
+          path: .build/*.bin
