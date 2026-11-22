@@ -181,7 +181,7 @@
             { "flags": 4, "matrix": [0, 5], "x": 152, "y": 52 }
         ],
         "sleep": true
-    },
+    
     "usb": {
         "device_version": "0.0.2",
         "pid": "0x000F",
