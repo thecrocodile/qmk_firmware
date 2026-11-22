@@ -83,7 +83,7 @@
             "solid_multisplash": true
         },
         "react_on_keydown": true
-    }
+    },
         "center_point": [78, 20],
         "driver": "aw20216s",
         "layout": [
