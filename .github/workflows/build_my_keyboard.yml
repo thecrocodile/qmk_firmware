@@ -9,10 +9,21 @@ jobs:
     container: ghcr.io/qmk/qmk_cli
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Official QMK
         uses: actions/checkout@v4
         with:
+          repository: qmk/qmk_firmware
           submodules: recursive
+
+      - name: Enable Keypress Lighting
+        run: |
+          python3 -c '
+          import json
+          path = "keyboards/projectd/75/ansi/keyboard.json"
+          with open(path, "r") as f: data = json.load(f)
+          data.setdefault("rgb_matrix", {})["react_on_keydown"] = True
+          with open(path, "w") as f: json.dump(data, f, indent=4)
+          '
 
       - name: Compile QMK Firmware
         run: qmk compile -kb projectd/75/ansi -km default
@@ -20,5 +31,5 @@ jobs:
       - name: Upload Firmware
         uses: actions/upload-artifact@v4
         with:
-          name: projectd_75_ansi_via
+          name: projectd_75_ansi_default
           path: .build/*.bin
