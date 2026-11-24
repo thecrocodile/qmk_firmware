@@ -26,7 +26,7 @@ jobs:
           '
 
       - name: Compile QMK Firmware
-        run: qmk compile -kb projectd/75/ansi -km via
+        run: qmk compile -kb projectd/75/ansi -km default -e VIA_ENABLE=yes
 
       - name: Upload Firmware
         uses: actions/upload-artifact@v4
