@@ -37,6 +37,7 @@
         }
     },
     "rgb_matrix": {
+        "driver": "snled27351",
         "animations": {
             "alphas_mods": true,
             "gradient_up_down": true,
