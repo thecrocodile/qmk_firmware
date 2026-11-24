@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: projectd_75_ansi_default
-          path: .build/*.bin
+          path: *.bin
