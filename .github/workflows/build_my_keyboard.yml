@@ -26,10 +26,10 @@ jobs:
           '
 
       - name: Compile QMK Firmware
-        run: qmk compile -kb projectd/75/ansi -km default
+        run: qmk compile -kb projectd/75/ansi -km via
 
       - name: Upload Firmware
         uses: actions/upload-artifact@v4
         with:
-          name: projectd_75_ansi_default
+          name: projectd_75_ansi_via
           path: "*.bin"
